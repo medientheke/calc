@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="manifest" href="manifest.json">
+  <link type="text/css" rel="stylesheet"  href="style.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js" type="text/javascript"></script>
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <title>Calculator</title>
+</head>
+<body>
+  <div class="cookie-notify" id="cookie-notify"></div>
+  <!-- MAIN MENU -->
+  <div class="main">
+    <!-- ATTACKER -->
+    <div class="auswahl-einheit" id="a-hp">
+      <button id="a-hp-up" class="up"> ▲ up </button>
+      <div class="picture"><H1 id="a-hp-value">10</H1></div>
+      <button id="a-hp-down" class="down"> ▼ down </button>
+    </div>
+    <div class="auswahl-einheit" id="a-unit">
+      <button id="a-unit-up" class="up"> ▲ up </button>
+      <div class="picture">
+        <div id="a-unit-1"><img src="img/1_infantry.svg" alt="infantry"/><p>Infantry</p></div>
+        <div id="a-unit-2" class="invisible"><img src="img/2_bazooka.svg" alt="bazooka"/><p>bazooka</p></div>
+        <div id="a-unit-3" class="invisible"><img src="img/3_racon.svg" alt="racon"/><p>Racon</p></div>
+        <div id="a-unit-4" class="invisible"><img src="img/4_transporter.svg" alt="transporter"/><p>transporter</p></div>
+        <div id="a-unit-5" class="invisible"><img src="img/5_tank.svg" alt="tank"/><p>tank</p></div>
+        <div id="a-unit-6" class="invisible"><img src="img/6_bigtank.svg" alt="bigtank"/><p>bigtank</p></div>
+        <div id="a-unit-7" class="invisible"><img src="img/7_artillery.svg" alt="artillery"/><p>artillery</p></div>
+        <div id="a-unit-8" class="invisible"><img src="img/8_rocketlauncher.svg" alt="rocketlauncher"/><p>rocketlauncher</p></div>
+      </div>
+    <button id="a-unit-down" class="down"> ▼ down </button>
+    </div>
+    <div class="auswahl-einheit" id="a-ground">
+      <button id="a-ground-up" class="up"> ▲ up </button>
+      <div class="picture">
+        <div id="a-ground-1"><img src="img/1_street.svg" alt="street"/><p>street</p></div>
+        <div id="a-ground-2" class="invisible"><img src="img/2_river.svg" alt="river"/><p>river</p></div>
+        <div id="a-ground-3" class="invisible"><img src="img/3_field.svg" alt="field"/><p>field</p></div>
+        <div id="a-ground-4" class="invisible"><img src="img/4_wood.svg" alt="wood"/><p>wood</p></div>
+        <div id="a-ground-5" class="invisible"><img src="img/5_mountain.svg" alt="mountain"/><p>mountain</p></div>
+        <div id="a-ground-6" class="invisible"><img src="img/6_city.svg" alt="city"/><p>city</p></div>
+        <div id="a-ground-7" class="invisible"><img src="img/7_factory.svg" alt="factory"/><p>factory</p></div>
+        <div id="a-ground-8" class="invisible"><img src="img/8_hq.svg" alt="hq"/><p>hq</p></div>
+      </div>
+      <button id="a-ground-down" class="down"> ▼ down </button>
+    </div>
+    <!-- BULLIT -->
+    <div class="bullit"> attacks </div>
+    <!-- DEFENDER -->
+    <div class="auswahl-einheit" id="d-hp">
+      <button id="d-hp-up" class="up"> ▲ up </button>
+      <div class="picture"><H1 id="d-hp-value">10</H1></div>
+      <button id="d-hp-down" class="down"> ▼ down </button>
+    </div>
+    <div class="auswahl-einheit" id="d-unit">
+      <button id="d-unit-up" class="up"> ▲ up </button>
+      <div class="picture">
+        <div id="d-unit-1"><img src="img/1_infantry.svg" alt="infantry"/><p>Infantry</p></div>
+        <div id="d-unit-2" class="invisible"><img src="img/2_bazooka.svg" alt="bazooka"/><p>bazooka</p></div>
+        <div id="d-unit-3" class="invisible"><img src="img/3_racon.svg" alt="racon"/><p>Racon</p></div>
+        <div id="d-unit-4" class="invisible"><img src="img/4_transporter.svg" alt="transporter"/><p>transporter</p></div>
+        <div id="d-unit-5" class="invisible"><img src="img/5_tank.svg" alt="tank"/><p>tank</p></div>
+        <div id="d-unit-6" class="invisible"><img src="img/6_bigtank.svg" alt="bigtank"/><p>bigtank</p></div>
+        <div id="d-unit-7" class="invisible"><img src="img/7_artillery.svg" alt="artillery"/><p>artillery</p></div>
+        <div id="d-unit-8" class="invisible"><img src="img/8_rocketlauncher.svg" alt="rocketlauncher"/><p>rocketlauncher</p></div>
+      </div>
+      <button id="d-unit-down" class="down"> ▼ down </button>
+    </div>
+    <div class="auswahl-einheit" id="d-ground">
+      <button id="d-ground-up" class="up"> ▲ up </button>
+      <div class="picture">
+        <div id="d-ground-1"><img src="img/1_street.svg" alt="street"/><p>street</p></div>
+        <div id="d-ground-2" class="invisible"><img src="img/2_river.svg" alt="river"/><p>river</p></div>
+        <div id="d-ground-3" class="invisible"><img src="img/3_field.svg" alt="field"/><p>field</p></div>
+        <div id="d-ground-4" class="invisible"><img src="img/4_wood.svg" alt="wood"/><p>wood</p></div>
+        <div id="d-ground-5" class="invisible"><img src="img/5_mountain.svg" alt="mountain"/><p>mountain</p></div>
+        <div id="d-ground-6" class="invisible"><img src="img/6_city.svg" alt="city"/><p>city</p></div>
+        <div id="d-ground-7" class="invisible"><img src="img/7_factory.svg" alt="factory"/><p>factory</p></div>
+        <div id="d-ground-8" class="invisible"><img src="img/8_hq.svg" alt="hq"/><p>hq</p></div>
+      </div>
+      <button id="d-ground-down" class="down"> ▼ down </button>
+    </div>
+  </div> <!-- ENDE MAINMENU -->
+  <!-- ANSWER -->
+  <div class="answer" id="answer"> answer </div>
+  <!-- BUTTON -->
+  <button class="calc-button" id="calc-button"> ☠ calc </button>
+  
+  <!-- BLABLABLA -->
+  <div id="blablabla" class="invisible">
+    <!-- PROPERTIES-CONTAINER ------------------------------------------------------->
+    <div id="properties-container">
+      <div id="terms-of-use">
+        <a href="#terms-of-use/">Nutzungsbedingungen</a>
+      </div>
+      <div id="impressum">
+        <a href="#impressum/">
+          Impressum
+        </a>
+      </div>
+      <div id="privacy-policy">
+        <a href="#privacy-policy/">
+          Datenschutz
+        </a>
+      </div>
+      <button id="cookie-revoke-button">
+        Cookie-Entscheidung widerrufen
+      </button>
+    </div> <!-- ENDE DES PROPERTIES-CONTAINERS -->
+
+    <!-- IMPRESSUM-CONTAINER ------------------------------------------------------->
+    <div id="impressum-container">
+      <h1>Impressum</h1>
+      <h2>Angaben nach $ 5 TMG:</h2>
+      <p>
+        Mathias Fischer<br />
+        Woldeforsterstraße 1<br />
+        17109 Demmin<br/>
+        <br/>
+        m e d i e n t h e k e (ät) g m a i l . c o m <br />
+        0 1 5 7 - 8 1 9 8 0 5 3 9
+      </p>
+    </div>
+
+    <!-- TERMS-OF-USE-CONTAINER ------------------------------------------------------->
+    <div id="terms-of-use-container">
+      <h1>Nutzungsbedingungen</h1>
+      Mit Ihrer Nutzung dieser Internetseite oder dem Zugriff darauf, stimmen Sie diesen Nutzungsbedingungen
+      in ihrer jeweils gemäß nachfolgendem Abschnitt "Änderungen der Nutzungsbedingungen" aktualisierten
+      Fassung  und der Datenschutzerklärung unter
+      <a href="https://medientheke.github.io/index.html#privacy-policy">https://medientheke.github.io/index.html#privacy-policy</a>
+      zu.
+      <h2>Kein Schindluder</h2>
+      <p>
+        Sie erklären sich weiter bereit, weder mit dieser Seite noch mithilfe dieser Seite Schindluder zu treiben.
+      </p>
+      <h2>Urheberrecht</h2>
+      <p>
+        Für meine erstellten Inhalte und Werke auf diesen Seiten gilt das deutsche Urheberrecht.
+        Die Vervielfältigung, Bearbeitung, Verbreitung und jede
+        Art der Verwertung außerhalb der Grenzen des Urheberrechtes benötigen meine schriftliche Genehmigung.
+        Downloads und Kopien dieser Seite sind nur für den privaten, nicht kommerziellen Gebrauch gestattet.
+        Downloads und Kopien eingebetteter YouTube-Videos ist nach den YouTube Term of Service (<a href="https://www.youtube.com/t/terms">https://www.youtube.com/t/terms</a>) untersagt.
+      </p>
+      <p>
+        Für nicht von mir erstellte Inhalte werden die
+        Urheberrechte Dritter beachtet. Insbesondere gilt dies auch für das Einbetten, das sogenannte Framing, von Videos.
+        Die Inhalte von Dritten werden als solche gekennzeichnet. Sollte trotzdem eine Urheberrechtsverletzung vorliegen,
+        werde ich bei Bekanntwerden die entsprechenden Inhalte entfernen. Geben Sie mir hierfür entsprechend Bescheid.
+      </p>
+      <h2>Haftungsausschluss für Inhalte</h2>
+      <p>
+        Als Betreiber bin ich nach $ 7 Abs.1 TMG für meine eigenen Inhalte auf diesen
+        Seiten nach den allgemeinen Gesetzen verantwortlich.
+        Nach $ 8 bis 10 TMG bin ich aber nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen
+        zu überwachen oder nach Umständen zu forschen, die auf rechtswidrige Tätigkeiten hinweisen.
+      </p>
+      <p>
+        Die Verpflichtung zur Entfernung oder Sperrung der Nutzung von Informationen
+        nach den allgemeinen Gesetzen besteht aber weiterhin.
+        Eine damit eingehende Haftung ist aber erst mit der Kenntnis einer
+        konkreten Rechtsverletzung möglich.
+        Bei entsprechenden Rechtsverletzungen werden die betroffenden Inhalte mit dem Zeitpunkt des Bekanntwerdens der Rechtsverletzung entfernt.
+      </p>
+      <h2>Haftungausschluss für Links</h2>
+      <p>
+        Auf dieser Internetseite existieren Links, die zu externen Internetseiten (z. B. Youtube) führen.
+        Auf deren Inhalte habe ich keinen Einfluss, weshalb ich für diese externen Inhalte auch keine
+        Gewähr übernehme. Dafür sind die Betreiber der entsprechenden Seiten selbst verantwortlich.
+        Aber zum Zeitpunkt der Verlinkung habe ich die verlinkten Seiten auf
+        mögliche Rechtsverstöße untersucht, welche aber nicht erkennbar waren.
+      </p>
+      <p>
+        Sollten Rechtsverstöße bekannt werden, werde ich die entsprechenden Links umgehend entfernen.
+        Eine permanente Untersuchung der verlinkten Seiten auf Rechtsverstöße ist ohne konkrete Anhaltspunkte nicht zumutbar.
+      </p>
+      <h2>Änderung der Nutzungsbedingungen</h2>
+      <p>
+        Ich halte mir vor, von Zeit zu Zeit Änderungen an den Nutzungsbedingungen vorzunehmen,
+        welche dann unter
+        <a href="https://medientheke.github.io/index.html#terms-of-use">https://medientheke.github.io/index.html#terms-of-use</a>
+        veröffentlicht werden.
+        Mit der Nutzung der Internetseite oder dem Zugriff darauf
+        nach dem Veröffentlichen der geänderten Nutzungsbedingungen unter
+        <a href="https://medientheke.github.io/index.html#terms-of-use">https://medientheke.github.io/index.html#terms-of-use</a>
+        akzeptieren Sie die geänderten Nutzungsbedingungen.
+      </p>
+      <h2>Kein Spam</h2>
+      <p>
+        Ich widerspreche hiermit die Nutzung der Kontaktinformationen im Impressum zur Übersendung von nicht
+        ausdrücklich angeforderter Werbung oder Informationsmaterialien (oder anderweitigem Spam) und behalte
+        mir ausdrücklich rechtliche Schritte im Falle bei Missachtung vor.
+      </p>
+      <h2>Salvatorische Klausel</h2>
+      <p>
+        Sollten einzelne Bedingungen unwirksam oder undurchführbar sein,
+        bleibt davon die Wirksamkeit der übrigen Bedingungen unberührt.
+      </p>
+    </div>
+
+    <!-- PRIVACY-POLICY-CONTAINER ------------------------------------------------------->
+    <div id="privacy-policy-container">
+      <h1>Datenschutzerklärung</h1>
+      <h2>Datenschutz</h2>
+      <p>
+        Ich, der Betreiber dieser Seite nehme den Schutz Ihrer persönlichen Daten sehr ernst,
+        behandle Ihre personenbezogenen Daten vertraulich und entsprechend der gesetzlichen
+        Datenschutzvorschriften sowie dieser Datenschutzerklärung.
+      </p>
+      <p>
+        Die Nutzung der Webseite ist im Allgemeinen ohne Angabe personenbezogener Daten möglich.
+        Wenn auf der Seite dennoch personenbezogene Daten erhoben werden, dann werden diese Daten, soweit möglich,
+        stets auf freiwilliger Basis erhoben und nicht ohne Ihre explizite Zustimmung an Dritte weitergegeben.
+      </p>
+      <p>
+        Ich weise darauf hin, dass die Datenübertragung im Internet Sicherheitslücken aufweisen kann.
+        Ein lückenloser Schutz der Daten vor dem Zugriff durch Dritte ist nicht möglich.
+      </p>
+      <h2>SSL-Verschlüsselung</h2>
+      <p>
+        Diese Seite nutzt aus Gründen der Sicherheit und zum Schutz der Übertragung vertraulicher
+        Inhalte eine SSL-Verschlüsselung, was Sie am Schloss-Symbol in der Browserzeile und am "https://"
+        am Anfang der Adresszeile Ihres Browsers erkennen.
+      </p>
+      <p>
+        Bei aktivierter SSL-Verschlüsselung können die Daten, die Sie übermitteln, nicht von
+        Dritten mitgelesen werden.
+      </p>
+      <h2>Cookies</h2>
+      <p>
+        Diese Internetseite verwendet teilweise so genannte Cookies.
+        Cookies richten auf Ihrem Rechner keinen Schaden an und enthalten keine Viren.
+        Es sind kleine Textdateien, die auf Ihrem Rechner abgelegt werden und die Ihr Browser speichert.
+        Die Cookies werden verwendet, um diese Internetseite nutzerfreundlicher zu machen.
+      </p>
+      <p>
+        Die meisten der von mir verwendeten Cookies sind so genannte „Session-Cookies“.
+        Sie werden nach dem Ende Ihres Besuchs automatisch gelöscht.
+        Andere Cookies bleiben auf Ihrem Endgerät gespeichert, bis Sie diese löschen.
+        Diese Cookies ermöglichen es, Ihre persönlichen Einstellungen (z. B. Ihre Favoritenliste) abzuspeichern
+        oder Ihren Browser beim nächsten Besuch wiederzuerkennen.
+      </p>
+      <p>
+        Bevor diese Internetseite Cookies verwendet, wird von Ihnen eine Erlaubnis über das Setzen von Cookies eingeholt.
+        Sie können Ihre Entscheidung jederzeit <a href="#properties/">hier</a> widerrufen.
+        Außerdem können Sie unabhängig von dieser Entscheidung auch Ihren Browser so einstellen,
+        dass Sie über das Setzen von Cookies informiert werden,
+        Cookies automatisch beim Schließen des Browser löschen oder
+        Cookies in Einzelfällen oder generell erlauben bzw verbieten.
+        Mehr dazu finden Sie z. B. auf <a href="https://www.cookiesandyou.com">cookiesandyou.com</a>.
+        Bei der Deaktivierung von Cookies kann die Funktionalität dieser Website eingeschränkt sein.
+      </p>
+    </div> <!-- ENDE DES PRIVACY-POLICY-CONTAINERS ------------------------------------------------------->  
+  </div> <!-- ENDE DES BLABLABLA -->
+  <script src="init.js" type="text/javascript" ></script>
+</body>
+</html>
