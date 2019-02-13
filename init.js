@@ -23,6 +23,7 @@ var dUnit=1;
 var aGround=1;
 var dGround=1;
 var dGroundStars=0;
+var aGroundStars=0;
 
 
 /*****************************************/
@@ -110,7 +111,7 @@ async function renderPage(){
 /************************************************/
 
 //document.addEventListener('DOMContentLoaded', initTinder);
-document.getElementById("a-unit-up").addEventListener('click',function(){
+document.getElementById("a-unit-down").addEventListener('click',function(){
   document.getElementById("a-unit-"+aUnit).classList.add("invisible");
   if(aUnit>1){
     aUnit=aUnit-1;
@@ -119,7 +120,7 @@ document.getElementById("a-unit-up").addEventListener('click',function(){
   }
   document.getElementById("a-unit-"+aUnit).classList.remove("invisible");  
 });
-document.getElementById("a-unit-down").addEventListener('click',function(){
+document.getElementById("a-unit-up").addEventListener('click',function(){
   document.getElementById("a-unit-"+aUnit).classList.add("invisible");
   if(aUnit<8){
     aUnit=aUnit+1;
@@ -129,7 +130,7 @@ document.getElementById("a-unit-down").addEventListener('click',function(){
   document.getElementById("a-unit-"+aUnit).classList.remove("invisible");
 });
 
-document.getElementById("d-unit-up").addEventListener('click',function(){
+document.getElementById("d-unit-down").addEventListener('click',function(){
   document.getElementById("d-unit-"+dUnit).classList.add("invisible");
   if(dUnit>1){
     dUnit=dUnit-1;
@@ -138,7 +139,7 @@ document.getElementById("d-unit-up").addEventListener('click',function(){
   }
   document.getElementById("d-unit-"+dUnit).classList.remove("invisible");
 });
-document.getElementById("d-unit-down").addEventListener('click',function(){
+document.getElementById("d-unit-up").addEventListener('click',function(){
   document.getElementById("d-unit-"+dUnit).classList.add("invisible");
   if(dUnit<8){
     dUnit=dUnit+1;
@@ -148,7 +149,7 @@ document.getElementById("d-unit-down").addEventListener('click',function(){
   document.getElementById("d-unit-"+dUnit).classList.remove("invisible");
 });
 
-document.getElementById("a-ground-up").addEventListener('click',function(){
+document.getElementById("a-ground-down").addEventListener('click',function(){
   document.getElementById("a-ground-"+aGround).classList.add("invisible");
   if(aGround>1){
     aGround=aGround-1;
@@ -157,7 +158,7 @@ document.getElementById("a-ground-up").addEventListener('click',function(){
   }
   document.getElementById("a-ground-"+aGround).classList.remove("invisible");
 });
-document.getElementById("a-ground-down").addEventListener('click',function(){
+document.getElementById("a-ground-up").addEventListener('click',function(){
   document.getElementById("a-ground-"+aGround).classList.add("invisible");
   if(aGround<8){
     aGround=aGround+1;
@@ -167,7 +168,7 @@ document.getElementById("a-ground-down").addEventListener('click',function(){
   document.getElementById("a-ground-"+aGround).classList.remove("invisible");
 });
 
-document.getElementById("d-ground-up").addEventListener('click',function(){
+document.getElementById("d-ground-down").addEventListener('click',function(){
   document.getElementById("d-ground-"+dGround).classList.add("invisible");
   if(dGround>1){
     dGround=dGround-1;
@@ -176,7 +177,7 @@ document.getElementById("d-ground-up").addEventListener('click',function(){
   }
   document.getElementById("d-ground-"+dGround).classList.remove("invisible");
 });
-document.getElementById("d-ground-down").addEventListener('click',function(){
+document.getElementById("d-ground-up").addEventListener('click',function(){
   document.getElementById("d-ground-"+dGround).classList.add("invisible");
   if(dGround<8){
     dGround=dGround+1;
@@ -186,7 +187,7 @@ document.getElementById("d-ground-down").addEventListener('click',function(){
   document.getElementById("d-ground-"+dGround).classList.remove("invisible");
 });
 
-document.getElementById("a-hp-up").addEventListener('click',function(){
+document.getElementById("a-hp-down").addEventListener('click',function(){
   if(aHp>1){
     aHp=aHp-1;
   }else{
@@ -194,7 +195,7 @@ document.getElementById("a-hp-up").addEventListener('click',function(){
   }
   document.getElementById("a-hp-value").innerHTML=aHp;  
 });
-document.getElementById("a-hp-down").addEventListener('click',function(){
+document.getElementById("a-hp-up").addEventListener('click',function(){
   if(aHp<10){
     aHp=aHp+1;
   }else{
@@ -203,7 +204,7 @@ document.getElementById("a-hp-down").addEventListener('click',function(){
   document.getElementById("a-hp-value").innerHTML=aHp;  
 });
 
-document.getElementById("d-hp-up").addEventListener('click',function(){
+document.getElementById("d-hp-down").addEventListener('click',function(){
   if(dHp>1){
     dHp=dHp-1;
   }else{
@@ -211,7 +212,7 @@ document.getElementById("d-hp-up").addEventListener('click',function(){
   }
   document.getElementById("d-hp-value").innerHTML=dHp;  
 });
-document.getElementById("d-hp-down").addEventListener('click',function(){
+document.getElementById("d-hp-up").addEventListener('click',function(){
   if(dHp<10){
     dHp=dHp+1;
   }else{
@@ -232,9 +233,22 @@ document.getElementById("calc-button").addEventListener('click',function(){
     case 8: dGroundStars=4; break;
     default: dGroundStars=0;
   }
+  switch(aGround) {
+    case 1: aGroundStars=0; break;
+    case 2: aGroundStars=0; break;
+    case 3: aGroundStars=1; break;
+    case 4: aGroundStars=2; break;
+    case 5: aGroundStars=4; break;
+    case 6: aGroundStars=2; break;
+    case 7: aGroundStars=3; break;
+    case 8: aGroundStars=4; break;
+    default: aGroundStars=0;
+  }
   let bd=baseDamage[aUnit-1][dUnit-1]/100*aHp/10*(100-dHp*dGroundStars)/100;
   let survivor=Math.round(Math.max(dHp-aHp*bd,0));
-  document.getElementById("answer").innerHTML=survivor;  
+  let bdConter=baseDamage[dUnit-1][aUnit-1]/100*survivor/10*(100-aHp*aGroundStars)/100;
+  let survivorConter=Math.round(Math.max(aHp-survivor*bdConter,0));
+  document.getElementById("answer").innerHTML="<h2>surviving attacker (if conter): "+survivorConter+" and defender "+survivor+"<h2>";  
 });
 
 
